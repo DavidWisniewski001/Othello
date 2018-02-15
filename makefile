@@ -4,6 +4,8 @@
 #
 #
 #
+all: build archive
+
 build: Game
 
 Game: main.o Myothello.o space.o game.o
@@ -23,7 +25,6 @@ space.o: space.cc
 
 clean:
 	rm -f *.o core *.core
-	rm MyOthello
 
-archive: main.cc game.cc Myothello.cc space.cc char.h  colors.h game.h space.h Myothello.h makefile.mk
-	tar cvzf *.o Game
+archive: main.cc game.cc Myothello.cc space.cc char.h  colors.h game.h space.h Myothello.h makefile
+	tar -cf archive.tar main.cc game.cc Myothello.cc space.cc char.h  colors.h game.h space.h Myothello.h makefile
